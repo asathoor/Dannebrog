@@ -29,7 +29,7 @@ $flagstang = plugin_dir_url("dannebrog", __FILE__) . "dannebrog/dannebrog.gif"; 
 //echo $flagstang;
 	
 		if (date('m') == $maaned && date('d') == $dato) {
-			echo "<img src='" . $flagstang . "' alt='Dannebrog' width='50' height='38' >"; // kan skaleres efter behov
+			echo "<img src='" . $flagstang . "' alt='Dannebrog' style='width:100%'>"; // kan skaleres efter behov
 			echo "<p style='font-size:smaller'>" . $hvad . "</p>";
 		}
 	}
