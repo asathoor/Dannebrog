@@ -22,32 +22,34 @@ class flagDag
 	// printer hvis dagen er en flagdag
 	public function dag($dato, $maaned, $hvad) {
 		// undersøger om det er en flagdag
-// $fil = plugin_dir_url(__FILE__) . "minFil.php";
-//$flagstang = "http://www.multimusen.dk/wp-content/plugins/dannebrog/dannebrog.gif"; // flag img path
+		// $fil = plugin_dir_url(__FILE__) . "minFil.php";
+		//$flagstang = "http://www.multimusen.dk/wp-content/plugins/dannebrog/dannebrog.gif"; // flag img path
 
-$flagstang = plugin_dir_url("dannebrog", __FILE__) . "dannebrog/dannebrog.gif"; // flag img path
-//echo $flagstang;
+		$flagstang = plugin_dir_url("dannebrog", __FILE__) . "dannebrog/dannebrog.gif"; // flag img path
+		//echo $flagstang;
 	
-		if (date('m') == $maaned && date('d') == $dato) {
-			echo "<img src='" . $flagstang . "' alt='Dannebrog' style='width:100%'>"; // kan skaleres efter behov
-			echo "<p style='font-size:smaller'>" . $hvad . "</p>";
+				if (date('m') == $maaned && date('d') == $dato) {
+					echo "<img src='" . $flagstang . "' alt='Dannebrog' style='width:100%'>"; // kan skaleres efter behov
+					echo "<p style='font-size:smaller'>" . $hvad . "</p>";
+				}
+			}
+
+			// sådan: plusTid('+3 weeks +5 days');
+			function fePaaske($tid, $hvad) {
+				// Denne funktion beregner dato for skæve helligdage
+				$date = date("Y-m-d", easter_date()); // påskedag
+				$newdate = strtotime ( $tid, strtotime ( $date ) ) ; // her plus-minuses
+				$newdate = date ( 'd,m' , $newdate ); // datoen formatteres
+
+			 	return $newdate . "," . $hvad; // udskriver resultatet
+			}
 		}
-	}
 
-	// sådan: plusTid('+3 weeks +5 days');
-	function fePaaske($tid, $hvad) {
-		// Denne funktion beregner dato for skæve helligdage
-		$date = date("Y-m-d", easter_date()); // påskedag
-		$newdate = strtotime ( $tid, strtotime ( $date ) ) ; // her plus-minuses
-		$newdate = date ( 'd,m' , $newdate ); // datoen formatteres
-
-	 	return $newdate . "," . $hvad; // udskriver resultatet
-	}
-}
 
 $ny = new flagDag(); // instantierer klassen
 
-// FLAGDAGE
+// Official days
+/*
 $ny->dag(01,01,"Nytårsdag");
 $ny->dag(05,02,"H.K.H. Kronprinsesse Mary");
 $ny->dag(06,02,"H.K.H. Prinsesse Marie");
@@ -62,7 +64,7 @@ $ny->dag(11,06,"H.K.H. Prinsgemal Henrik.");
 $ny->dag(15,06,"Valdemarsdag og Genforeningen (1920)");
 $ny->dag(05,09,"H.K.H. Prins Joachim");
 
-// MILITAERE FLAGDAGE
+// Military Celebrations
 $ny->dag(29,01,"Søværnet: Holmens Hæderstegn.");
 $ny->dag(02,02,"Søværnet og hæren: Kampen ved Mysunde (1864).");
 $ny->dag(11,02,"Søværnet og hæren: Stormen på København (1659).");
@@ -84,6 +86,8 @@ $ny->dag(26,07,"Søværnet: Erobringen af Marstrand (1719).");
 $ny->dag(05,08,"Hæren, Søværnet og Luftvåbnet: Hædring af Danmarks Udsendte.");
 $ny->dag(01,10,"Flyvevåbnets oprettelse (1950).");
 $ny->dag(04,10,"Hæren og Søværnet: Stormen på Frederiksstad 1850. Kampen i Køge bugt 1710.");
+
+*/
 
 /* KIRKELIGE FLAGDAGE
 De "skæve" kirkelige helligdage følger en månekaldender og falder et antal dage efter en bestemt fuldmåne.
@@ -107,7 +111,7 @@ Substrings fra datoformatteringen, ide til:
 //$dag = substr($newdate, 0, 2); // returnerer 01 --> 31
 //$maaned = substr($newdate, 3, 4); // returnerer 01 --> 12
 */
-
+/*
 $kadosh = array(
 	$ny->fePaaske("-1 weeks", "Palmesøndag"), // Palmesøndag
 	$ny->fePaaske("-3 days", "Skærtorsdag"), // Skærtorsdag
@@ -133,6 +137,8 @@ while($i <= count($kadosh))
 
 $ny->dag(25,12,"1. Juledag."); // helligdage med fast dato
 $ny->dag(26,12,"2. Juledag.");
+*/
+
 
 /* PRIVATE FLAGDAGE
 Indfør dine private flagdage herunder
@@ -147,10 +153,11 @@ Example: $ny->dag(03,06,"test");
 You also might want to change the file and name referred to in $flagstang. Simply change the file to your flag en change $flagstang to the correct filename.
 */
 
+/*
 $ny->dag(27,02,"Pers fødselsdag");
 $ny->dag(27,02,"Susannes fødselsdag");
 $ny->dag(03,08,"Ruths fødselsdag");
-// $ny->dag(03,04,"Test");
+*/
 
-
+$ny->dag(16,02,'Test: Frodo came home.');
 ?>
