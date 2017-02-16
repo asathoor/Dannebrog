@@ -1,49 +1,53 @@
 <?php
-/* DANSKE FLAGDAGE
-Af: Per Thykjaer Jensen, lektor
-Beskrivelse: Printer danske flagdage til en webside via PHP.
-
-Udviklet til gavn for Danmarks-Samfundet.
-Tak til Erik Dam for oplysninger om militære flagdage.
-
-Version: 1.0 Danske Flagdage.
-
-Ændringer:
-Version 1.0 - Militære flagdage tilføjet efter oplysninger fra Erik Dam.
-Version 0.2 - denne version kan beregne kirkelige flagdage baseret på påskedag.
-0.11 - Dannebrog som .gif af hensyn til kompabilitet.
-Version 0.1 - basal funktionalitet. På flagdage med fast dato vises et flag.
-
-Date: 20120604
-Copyright: GPLv3 - se licensen her: http://www.gnu.org/copyleft/gpl.html
+/** 
+ * DANSKE FLAGDAGE
+ * Af: Per Thykjaer Jensen, lektor
+ * Beskrivelse: Printer danske flagdage til en webside via PHP.
+ *
+ * Udviklet til gavn for Danmarks-Samfundet.
+ * Tak til Erik Dam for oplysninger om militære flagdage.
+ *
+ * Version: 1.0 Danske Flagdage.
+ *
+ * Changes
+ * Version 2.0 - String literal errors fixed.
+ * Version 1.0 - Militære flagdage tilføjet efter oplysninger fra Erik Dam.
+ * Version 0.2 - denne version kan beregne kirkelige flagdage baseret på påskedag.
+ * 0.11 - Dannebrog som .gif af hensyn til kompabilitet.
+ * Version 0.1 - basal funktionalitet. På flagdage med fast dato vises et flag.
+ *
+ * Date: 20170216
+ * Copyright: GPLv3 - se licensen her: http://www.gnu.org/copyleft/gpl.html
 */
-class flagDag
-{
+class flagDag {
 
 	public function dag($dato, $maaned, $hvad) {
-
+				
+				// Hoist the flag
 				if (date('m') == $maaned && date('d') == $dato) {
 					echo '<img src="' . plugins_url( 'Flag_of_Denmark.svg', __FILE__ ) . '" > ';	
-					echo "<p style='font-size:smaller'>" . $hvad . "</p>";
+					echo "<p class='dannebrogBegivenhed'>" . $hvad . "</p>";
 				}
 			}
 
-			// sådan: plusTid('+3 weeks +5 days');
+			// Easter Calculations
 			function fePaaske($tid, $hvad) {
-				// Denne funktion beregner dato for skæve helligdage
-				$date = date("Y-m-d", easter_date()); // påskedag
-				$newdate = strtotime ( $tid, strtotime ( $date ) ) ; // her plus-minuses
-				$newdate = date ( 'd,m' , $newdate ); // datoen formatteres
 
-			 	return $newdate . "," . $hvad; // udskriver resultatet
+				$date = date("Y-m-d", easter_date()); // easter
+				$newdate = strtotime ( $tid, strtotime ( $date ) ) ; // calculations
+				$newdate = date ( 'd,m' , $newdate ); // date format
+
+			 	return $newdate . "," . $hvad; // returns the date and the occation
 			}
-		}
+}
 
 
-$ny = new flagDag(); // instantierer klassen
+$ny = new flagDag(); // Instantiate the class.
 
-// Official days
 
+/**
+ * Official Danish Flag Days
+ */
 $ny->dag(1,1,"Nytårsdag");
 $ny->dag(5,2,"H.K.H. Kronprinsesse Mary");
 $ny->dag(6,2,"H.K.H. Prinsesse Marie");
@@ -58,7 +62,9 @@ $ny->dag(11,6,"H.K.H. Prinsgemal Henrik.");
 $ny->dag(15,6,"Valdemarsdag og Genforeningen (1920)");
 $ny->dag(5,9,"H.K.H. Prins Joachim");
 
-// Military Celebrations
+/**
+ * Navy and Army Flag Days
+ */
 $ny->dag(29,1,"Søværnet: Holmens Hæderstegn.");
 $ny->dag(02,2,"Søværnet og hæren: Kampen ved Mysunde (1864).");
 $ny->dag(11,2,"Søværnet og hæren: Stormen på København (1659).");
@@ -119,6 +125,9 @@ $kadosh = array(
 
 $i = 0; // looper derefter gennem kadosh-arrayet og kombinerer ny->dag med ny->fePaaske
 
+
+// -----> ERRORS HERE l. 130 - 132.
+// "Undefined offset 8"
 while($i <= count($kadosh))
 	{
 	$ny->dag(
@@ -133,22 +142,21 @@ $ny->dag(25,12,"1. Juledag."); // helligdage med fast dato
 $ny->dag(26,12,"2. Juledag.");
 
 
-/* PRIVATE FLAGDAGE
-Indfør dine private flagdage herunder
-Format: "dd,mm, begivenhed"
-eksempel: $ny->dag(03,06,"test");
-
-YOUR PERSONAL FLAG DAYS
-In Denmark we celebrate birthdays and personal special days by hoisting the flag. 
-From here you can use the class to enter private flag days
-Format: "dd,mm, begivenhed"
-Example: $ny->dag(3,6,"test");
-You also might want to change the file and name referred to in $flagstang. Simply change the file to your flag en change $flagstang to the correct filename.
+/**
+ * YOUR PERSONAL FLAG DAYS
+ * In Denmark we celebrate birthdays and personal special days by hoisting the flag. 
+ * From here you can use the class to enter private flag days
+ * Format: "dd,mm, begivenhed"
+ * Example: $ny->dag(3,6,"test");
+ * You also might want to change the file and name referred to in $flagstang. 
+ * Simply change the file  name Flag_of_Denmark.svg to something better.
 */
-
 $ny->dag(27,2,"Per's birthday");
 $ny->dag(27,2,"Susanne's birthday");
 $ny->dag(3,8,"Ruths fødselsdag");
 
+/**
+ * Test or Debug
+ */
 $ny->dag(16,2,'Test: Frodo came home.'); // testing, testing
 ?>
