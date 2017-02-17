@@ -128,7 +128,7 @@ $i = 0; // looper derefter gennem kadosh-arrayet og kombinerer ny->dag med ny->f
 
 // -----> ERRORS HERE l. 130 - 132.
 // "Undefined offset 8"
-while($i <= count($kadosh))
+while($i < count($kadosh))
 	{
 	$ny->dag(
 		(int)substr($kadosh[$i],0,2), // dag substring som integer
@@ -158,5 +158,5 @@ $ny->dag(3,8,"Ruths fødselsdag");
 /**
  * Test or Debug
  */
-$ny->dag(16,2,'Test: Frodo came home.'); // testing, testing
+$ny->dag(17,2,'Frodo went back to the shire.'); // testing, testing
 ?>
