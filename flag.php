@@ -151,12 +151,13 @@ $ny->dag(26,12,"2. Juledag.");
  * You also might want to change the file and name referred to in $flagstang. 
  * Simply change the file  name Flag_of_Denmark.svg to something better.
 */
-$ny->dag(27,2,"Per's birthday");
-$ny->dag(27,2,"Susanne's birthday");
-$ny->dag(3,8,"Ruths fødselsdag");
+
+//$ny->dag(27,2,"Per's birthday");
+//$ny->dag(27,2,"Susanne's birthday");
+//$ny->dag(3,8,"Ruths fødselsdag");
 
 /**
  * Test or Debug
  */
-$ny->dag(17,2,'Frodo went back to the shire.'); // testing, testing
+//$ny->dag(17,2,'Frodo went back to the shire.'); // use today ;-)
 ?>
