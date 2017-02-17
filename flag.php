@@ -7,7 +7,7 @@
  * Udviklet til gavn for Danmarks-Samfundet.
  * Tak til Erik Dam for oplysninger om militære flagdage.
  *
- * Version: 1.0 Danske Flagdage.
+ * Version: 2.0 Danske Flagdage.
  *
  * Changes
  * Version 2.0 - String literal errors fixed.
