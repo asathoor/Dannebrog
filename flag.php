@@ -25,7 +25,7 @@ class flagDag {
 				
 				// Hoist the flag
 				if (date('m') == $maaned && date('d') == $dato) {
-					echo '<img src="' . plugins_url( 'Flag_of_Denmark.svg', __FILE__ ) . '" > ';	
+					echo '<img id="Dannebrog" src="' . plugins_url( 'Flag_of_Denmark.svg', __FILE__ ) . '" > ';	
 					echo "<p class='dannebrogBegivenhed'>" . $hvad . "</p>";
 				}
 			}
