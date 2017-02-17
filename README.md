@@ -1,4 +1,5 @@
-# Dannebrog ( WordPress Plugin ) 2.0
+Dannebrog 2.0 ( WordPress Plugin )
+==================================
 
 ## Display the Danish Flag
 
