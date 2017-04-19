@@ -6,7 +6,7 @@ Description: Display the Danish flag on your web page on national. You may add p
 Version:     2.0
 Author:      Per Thykjaer Jensen, MA
 Author URI:  https://multimusen.dk
-License:     GPL2
+License:     GPL3
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: petjDannebrog
 Domain Path: /languages
