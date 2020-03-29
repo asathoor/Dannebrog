@@ -1,4 +1,4 @@
-Dannebrog 2.0 ( WordPress Plugin )
+Dannebrog 2.1 ( WordPress Plugin )
 ==================================
 
 ## Display the Danish Flag
@@ -13,9 +13,8 @@ Please let me know where it is used. Add a comment under issues.
 
 1. Download the zip.
 2. In Dashboard > Plugins > Add new
-3. Upload the zip file.
-4. Install.
-5. Activate.
+3. Upload the zip file via Plugins > Add New
+4. Activate.
 
 ## New in version 2.0 ( february 2017 )
 
