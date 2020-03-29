@@ -3,12 +3,12 @@
  * DANSKE FLAGDAGE
  * Af: Per Thykjaer Jensen, lektor
  * Beskrivelse: Printer danske flagdage til en webside via PHP.
- *
+ 
  * Udviklet til gavn for Danmarks-Samfundet.
  * Tak til Erik Dam for oplysninger om militære flagdage.
  *
- * Version: 2.0 Danske Flagdage.
- *
+ * Version: 2.1 Danske Flagdage.
+ 
  * Changes
  * Version 2.1 - Easter bug identified, solution?
  * Version 2.0 - String literal errors fixed.
@@ -18,7 +18,7 @@
  * Version 0.1 - basal funktionalitet. På flagdage med fast dato vises et flag.
  *
  * Date: 20170216
- * Copyright: GPLv3 - se licensen her: http://www.gnu.org/copyleft/gpl.html
+ * Copyright: GPLv3 http://www.gnu.org/copyleft/gpl.html
 */
 class flagDag {
 
@@ -30,33 +30,13 @@ class flagDag {
 					echo "<p class='dannebrogBegivenhed'>" . $hvad . "</p></div>";
 				}
             }
-
-            /*
-			// Easter Calculations
-            // BUG HERE!
-            // I get an error from easter_date();
-            //
-            
-			function fePaaske($tid, $hvad) {
-
-                //
-                
-                //
-				$date = date("Y-m-d", easter_date(  )); // easter
-				$newdate = strtotime ( $tid, strtotime ( $date ) ) ; // calculations
-				$newdate = date ( 'd,m' , $newdate ); // date format
-                //
-
-			 	return $newdate . "," . $hvad; // returns the date and the occation
-			}
-            */
             
 } // ends the flagdag class
 
 $ny = new flagDag(); // Instantiate the class.
 
 /**
- * Official Danish Flag Days
+ * Danish Flag Days
  */
 $ny->dag(1,1,"Nytårsdag");
 $ny->dag(5,2,"H.K.H. Kronprinsesse Mary");
@@ -73,7 +53,7 @@ $ny->dag(15,6,"Valdemarsdag og Genforeningen (1920)");
 $ny->dag(5,9,"H.K.H. Prins Joachim");
 
 /**
- * Navy and Army Flag Days
+ * Danish Navy and Army Flag Days
  */
 $ny->dag(29,1,"Søværnet: Holmens Hæderstegn.");
 $ny->dag(02,2,"Søværnet og hæren: Kampen ved Mysunde (1864).");
@@ -97,8 +77,31 @@ $ny->dag(5,8,"Hæren, Søværnet og Luftvåbnet: Hædring af Danmarks Udsendte."
 $ny->dag(1,10,"Flyvevåbnets oprettelse (1950).");
 $ny->dag(4,10,"Hæren og Søværnet: Stormen på Frederiksstad 1850. Kampen i Køge bugt 1710.");
 
-/* Easter Calculations
+/**
+ * THE EASTER DAYS
+**/
+$annoNow = date("Y");
 
+switch ($annoNow) {
+    case 2020:
+        $ny->dag(9,4,"Skærtorsdag");
+        $ny->dag(10,4,"Langfredag");
+        $ny->dag(11,4,"Aften: påskeaften");
+        $ny->dag(12,4,"Påskedag");
+        $ny->dag(13,4,"2. Påskedag");
+        
+        // påskedag
+        $paaskedagen = date_create("2020-04-10");
+        
+    case 2021:
+        // påskedage tilføjes her
+        break;
+    case 2022:
+        // påskedage tilføjes her
+        break;
+}
+
+/**
 KIRKELIGE FLAGDAGE
 De "skæve" kirkelige helligdage følger en månekaldender og falder et antal dage efter en bestemt fuldmåne.
 Udgangspunktet for beregningerne er påskedag.
@@ -166,7 +169,7 @@ $ny->dag(26,12,"2. Juledag.");
 //$ny->dag(27,2,"Susanne's birthday");
 //$ny->dag(3,8,"Ruths fødselsdag");
 
-$ny->dag(29,3,"<p>Nu med Dannebrog</p>");
+$ny->dag(29,3,"Nu med Dannebrog");
 
 /**
  * Test or Debug
