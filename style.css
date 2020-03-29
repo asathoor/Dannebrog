@@ -1,0 +1,12 @@
+/**
+ * Plugin: Dannebrog costum stylesheet
+ **/
+
+#Dannebrog {
+    width: 75px;
+    max-width: 100%;
+}
+
+#flaget {
+    padding: 2rem;
+}

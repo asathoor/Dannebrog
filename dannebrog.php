@@ -38,7 +38,7 @@ class petj_Dannebrog extends WP_Widget {
 	public function __construct() {
 		$widget_ops = array( 
 			'classname' => 'petj_dannebrog',
-			'description' => 'See Dannebrog on national and personal days of celebration.',
+			'description' => 'See Dannebrog, the Danish flag, on national or personal days of celebration.',
 		);
 		parent::__construct( 'petj_dannebrog', 'Dannebrog', $widget_ops );
 	}
@@ -69,17 +69,17 @@ class petj_Dannebrog extends WP_Widget {
 		echo '</div>';
 	}
 
-	/**
-	 * Processing widget options on save
-	 *
-	 * @param array $new_instance The new options
-	 * @param array $old_instance The previous options
-	 */
-	/*
-	public function update( $new_instance, $old_instance ) {
-		// processes widget options to be saved
-	}
-	*/
+}
+
+/* add costum stylesheet */
+
+add_action( 'wp_enqueue_scripts', 'dannebrog_stylesheet' );
+
+/* Enqueue plugin style-file */
+function dannebrog_stylesheet() {
+    // Respects SSL, Style.css is relative to the current file
+    wp_register_style( 'prefix-style', plugins_url('style.css', __FILE__) );
+    wp_enqueue_style( 'prefix-style' );
 }
 
 /*
