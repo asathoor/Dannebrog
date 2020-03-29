@@ -33,3 +33,4 @@ Please let me know where it is used. Add a comment under issues.
 ## External sources
 
 * [Flag_of_Denmark.svg &copy; Wikimedia Commons](https://commons.wikimedia.org/wiki/File%3AFlag_of_Denmark.svg)
+* [Function from T.I.M.: Calculate Easter](https://thisinterestsme.com/php-easter-date/)
