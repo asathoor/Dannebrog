@@ -1,7 +1,7 @@
-Dannebrog 2.1 ( WordPress Plugin )
-==================================
+Dannebrog ( WordPress Plugin )
+==============================
 
-## Display the Danish Flag
+## Display a Flag on Your Website
 
 The purpose of this plugin is to display the Danish flag on a web page on national holidays or personal occations. You can modify the code, and display the flag on birthsdays and similar. The plugin will add a widget. You can place it in any widget-area in your theme.
 
