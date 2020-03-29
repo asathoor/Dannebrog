@@ -10,6 +10,7 @@
  * Version: 2.0 Danske Flagdage.
  *
  * Changes
+ * Version 2.1 - Easter bug identified, solution?
  * Version 2.0 - String literal errors fixed.
  * Version 1.0 - Militære flagdage tilføjet efter oplysninger fra Erik Dam.
  * Version 0.2 - denne version kan beregne kirkelige flagdage baseret på påskedag.
@@ -25,13 +26,17 @@ class flagDag {
 				
 				// Hoist the flag
 				if (date('m') == $maaned && date('d') == $dato) {
-					echo '<img id="Dannebrog" src="' . plugins_url( 'Flag_of_Denmark.svg', __FILE__ ) . '" > ';	
-					echo "<p class='dannebrogBegivenhed'>" . $hvad . "</p>";
+					echo '<div id="flaget"><img id="Dannebrog" src="' . plugins_url( 'Flag_of_Denmark.svg', __FILE__ ) . '" > ';	
+					echo "<p class='dannebrogBegivenhed'>" . $hvad . "</p></div>";
 				}
-			}
+            }
 
             /*
 			// Easter Calculations
+            // BUG HERE!
+            // I get an error from easter_date();
+            //
+            
 			function fePaaske($tid, $hvad) {
 
                 //
@@ -46,7 +51,7 @@ class flagDag {
 			}
             */
             
-}
+} // ends the flagdag class
 
 $ny = new flagDag(); // Instantiate the class.
 
