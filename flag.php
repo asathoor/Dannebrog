@@ -7,9 +7,10 @@
  * Udviklet til gavn for Danmarks-Samfundet.
  * Tak til Erik Dam for oplysninger om militære flagdage.
  *
- * Version: 2.1 Danske Flagdage.
+ * Version: 2.2 Danske Flagdage.
  
  * Changes
+ * Version 2.2 - Bug solved.
  * Version 2.1 - Easter bug identified, solution?
  * Version 2.0 - String literal errors fixed.
  * Version 1.0 - Militære flagdage tilføjet efter oplysninger fra Erik Dam.
@@ -77,34 +78,9 @@ $ny->dag(5,8,"Hæren, Søværnet og Luftvåbnet: Hædring af Danmarks Udsendte."
 $ny->dag(1,10,"Flyvevåbnets oprettelse (1950).");
 $ny->dag(4,10,"Hæren og Søværnet: Stormen på Frederiksstad 1850. Kampen i Køge bugt 1710.");
 
-/**
- * THE EASTER DAYS
-**/
-$annoNow = date("Y");
-
-switch ($annoNow) {
-    case 2020:
-        $ny->dag(9,4,"Skærtorsdag");
-        $ny->dag(10,4,"Langfredag");
-        $ny->dag(11,4,"Aften: påskeaften");
-        $ny->dag(12,4,"Påskedag");
-        $ny->dag(13,4,"2. Påskedag");
-        
-        // påskedag
-        $paaskedagen = date_create("2020-04-10");
-        
-        // flere skæve helligdage
-        // opfind en eller anden funktion her ...
-        
-    case 2021:
-        // påskedage tilføjes her
-        break;
-    case 2022:
-        // påskedage tilføjes her
-        break;
-}
 
 /**
+
 KIRKELIGE FLAGDAGE
 De "skæve" kirkelige helligdage følger en månekaldender og falder et antal dage efter en bestemt fuldmåne.
 Udgangspunktet for beregningerne er påskedag.
@@ -126,7 +102,21 @@ Eftersom de skæve helligdage afhænger af påsken og månen så er PHPs påskeb
 Substrings fra datoformatteringen, ide til:
 //$dag = substr($newdate, 0, 2); // returnerer 01 --> 31
 //$maaned = substr($newdate, 3, 4); // returnerer 01 --> 12
-*/
+
+**/
+
+$nu = date("Y"); // now
+
+function easterDate($year = false){
+    if($year === false) {
+        $year = date("Y");
+    }
+    $easterDays = easter_days($year);
+    $march21 = date($year . '-03-21');
+    return date('Y-m-d', strtotime("$march21 + $easterDays days"));
+}
+
+echo easterDate();
 
 /*
 $kadosh = array(

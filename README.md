@@ -9,6 +9,24 @@ The purpose of this plugin is to display the Danish flag on a web page on nation
 
 Please let me know where it is used. Add a comment under issues.
 
+## Troubleshooting
+
+If you get an error from the eaterdate function, try to enable calendar in /etc/php/php.ini (I use Arch Linux, in other distros the position of this file may be somewhere else):
+
+~~~~
+// Change this line
+;extension=calendar
+
+// to this:
+extension=calendar
+~~~~
+
+Then restart Apache:
+
+~~~~
+sudo sudo apachectl -k restart
+~~~~
+
 ## Install
 
 1. Download the zip.
@@ -16,11 +34,11 @@ Please let me know where it is used. Add a comment under issues.
 3. Upload the zip file via Plugins > Add New
 4. Activate.
 
-## New in version 2.0 ( february 2017 )
+## New in version 2.1 ( March 2020 )
 
-* Bug from PHP Easter calculator (manual workaround).
 * Added style.css
 * Code developed in WordPress 5.4 RC5
+* Reason for error found
 
 
 ## New in version 2.0 ( february 2017 )
