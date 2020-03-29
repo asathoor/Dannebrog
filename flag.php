@@ -30,20 +30,25 @@ class flagDag {
 				}
 			}
 
+            /*
 			// Easter Calculations
 			function fePaaske($tid, $hvad) {
 
-				$date = date("Y-m-d", easter_date()); // easter
+                //
+                
+                //
+				$date = date("Y-m-d", easter_date(  )); // easter
 				$newdate = strtotime ( $tid, strtotime ( $date ) ) ; // calculations
 				$newdate = date ( 'd,m' , $newdate ); // date format
+                //
 
 			 	return $newdate . "," . $hvad; // returns the date and the occation
 			}
+            */
+            
 }
 
-
 $ny = new flagDag(); // Instantiate the class.
-
 
 /**
  * Official Danish Flag Days
@@ -112,6 +117,7 @@ Substrings fra datoformatteringen, ide til:
 //$maaned = substr($newdate, 3, 4); // returnerer 01 --> 12
 */
 
+/*
 $kadosh = array(
 	$ny->fePaaske("-1 weeks", "Palmesøndag"), // Palmesøndag
 	$ny->fePaaske("-3 days", "Skærtorsdag"), // Skærtorsdag
@@ -124,10 +130,9 @@ $kadosh = array(
 	);
 
 $i = 0; // looper derefter gennem kadosh-arrayet og kombinerer ny->dag med ny->fePaaske
+*/
 
-
-// -----> ERRORS HERE l. 130 - 132.
-// "Undefined offset 8"
+/*
 while($i < count($kadosh))
 	{
 	$ny->dag(
@@ -137,10 +142,10 @@ while($i < count($kadosh))
 		);
 	$i++;
 	};
+*/
 
 $ny->dag(25,12,"1. Juledag."); // helligdage med fast dato
 $ny->dag(26,12,"2. Juledag.");
-
 
 /**
  * YOUR PERSONAL FLAG DAYS
@@ -155,6 +160,8 @@ $ny->dag(26,12,"2. Juledag.");
 //$ny->dag(27,2,"Per's birthday");
 //$ny->dag(27,2,"Susanne's birthday");
 //$ny->dag(3,8,"Ruths fødselsdag");
+
+$ny->dag(29,3,"<p>Nu med Dannebrog</p>");
 
 /**
  * Test or Debug
