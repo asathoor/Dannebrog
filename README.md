@@ -11,7 +11,7 @@ Please let me know where it is used. Add a comment under issues.
 
 ## Troubleshooting
 
-If you get an error from the eaterdate function, try to enable calendar in /etc/php/php.ini (I use Arch Linux, in other distros the position of this file may be somewhere else):
+If you get an error from the easterdate function, try to enable calendar in /etc/php/php.ini (I use Arch Linux, in other distros the position of this file may be somewhere else):
 
 ~~~~
 // Change this line
