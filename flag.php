@@ -93,6 +93,9 @@ switch ($annoNow) {
         // påskedag
         $paaskedagen = date_create("2020-04-10");
         
+        // flere skæve helligdage
+        // opfind en eller anden funktion her ...
+        
     case 2021:
         // påskedage tilføjes her
         break;
@@ -155,10 +158,10 @@ while($i < count($kadosh))
 $ny->dag(25,12,"1. Juledag."); // helligdage med fast dato
 $ny->dag(26,12,"2. Juledag.");
 
-/**
+/** ---------------------------------------------------------------------------
  * YOUR PERSONAL FLAG DAYS
- * In Denmark we celebrate birthdays and personal special days by hoisting the flag. 
- * From here you can use the class to enter private flag days
+ * In Denmark we celebrate birthdays and personal by the flag.
+ * From here you can use the class to enter private days of celebration.
  * Format: "dd,mm, begivenhed"
  * Example: $ny->dag(3,6,"test");
  * You also might want to change the file and name referred to in $flagstang. 
